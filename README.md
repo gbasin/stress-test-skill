@@ -52,7 +52,7 @@ Or manually:
 
 ```bash
 curl -fsSL -o ~/.claude/commands/stress-test.md \
-  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/stress-test.md
+  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/skills/stress-test/SKILL.md
 ```
 
 ### Codex
@@ -71,7 +71,7 @@ curl -fsSL -o ~/.codex/skills/stress-test/SKILL.md \
 
 ### Other agent frameworks
 
-Copy `stress-test.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt.
+Copy `skills/stress-test/SKILL.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt.
 
 ## How it works
 
