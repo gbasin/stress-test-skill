@@ -1,14 +1,14 @@
 # stress-test-skill
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) slash command that stress-tests technical plans before you build them.
+An agent skill that stress-tests technical plans before you build them.
 
 Models are lazy about verification. They'll write a plan that says "use SQLite for concurrent writes" or "Y.js supports persistence out of the box" and move on without checking. These unchecked assumptions become mid-build surprises that force architectural pivots, messy workarounds, and wasted context.
 
-This skill forces the model to actually verify its claims — searching real docs, running proof-of-concept code, and fixing the plan before implementation starts. Each verification runs in a fresh sub-agent context window, so there's no confirmation bias from the planning conversation. The result: plans that work on the first try, which means cleaner code with fewer mid-course corrections.
+This skill forces the model to actually verify its claims — searching real docs, running proof-of-concept code, and fixing the plan before implementation starts. Each verification runs in a fresh sub-agent context, so there's no confirmation bias from the planning conversation. The result: plans that work on the first try, which means cleaner code with fewer mid-course corrections.
 
 ## Example
 
-You've been planning a real-time collaborative editor in conversation with Claude. Your plan assumes "SQLite handles concurrent writes fine" and "Y.js has built-in persistence." You run `/stress-test`:
+You've been planning a real-time collaborative editor. Your plan assumes "SQLite handles concurrent writes fine" and "Y.js has built-in persistence." You run the skill:
 
 ```
 Phase 1 — Decomposed plan into 14 decisions, 9 assumptions, 6 dependencies
@@ -41,13 +41,18 @@ Caught two false assumptions — one from docs, one from running code.
 
 ## Install
 
+### Claude Code
+
 ```bash
-# Copy to your Claude Code commands directory
 curl -fsSL -o ~/.claude/commands/stress-test.md \
   https://raw.githubusercontent.com/gbasin/stress-test-skill/main/stress-test.md
 ```
 
-Then type `/stress-test` in any Claude Code conversation that has a technical plan.
+Then type `/stress-test` in any conversation that has a technical plan.
+
+### AGENTS.md / Other agent frameworks
+
+Copy `stress-test.md` into wherever your framework reads agent instructions from, or paste its contents into your agent's system prompt. The skill references tool patterns (web search, sub-agents, user prompts) that are common across agent systems — adapt the specific tool names to your platform.
 
 ## How it works
 
@@ -66,11 +71,6 @@ Six phases, each building on the last:
 - When evaluating a new library, framework, or integration approach
 - Before committing to decisions that are expensive to reverse
 - Anytime a plan has claims you haven't personally verified
-
-## Requirements
-
-- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
-- An active conversation with a technical plan to review
 
 ## License
 
