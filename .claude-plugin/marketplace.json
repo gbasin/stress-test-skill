@@ -3,10 +3,13 @@
   "owner": {
     "name": "Gary Basin"
   },
+  "metadata": {
+    "pluginRoot": ".."
+  },
   "plugins": [
     {
       "name": "stress-test",
-      "source": "./..",
+      "source": ".",
       "description": "Adversarially stress-test technical plans by verifying claims against real docs, running POC code, and updating the plan before you build."
     }
   ]
