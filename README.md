@@ -41,6 +41,14 @@ Caught two false assumptions — one from docs, one from running code.
 
 ## Install
 
+### npx (auto-detects your agent frameworks)
+
+```bash
+npx stress-test-skill
+```
+
+Installs for Claude Code and Codex automatically if they're present.
+
 ### Claude Code
 
 ```bash
@@ -48,11 +56,17 @@ curl -fsSL -o ~/.claude/commands/stress-test.md \
   https://raw.githubusercontent.com/gbasin/stress-test-skill/main/stress-test.md
 ```
 
-Then type `/stress-test` in any conversation that has a technical plan.
+### Codex
 
-### AGENTS.md / Other agent frameworks
+```bash
+mkdir -p ~/.codex/skills/stress-test
+curl -fsSL -o ~/.codex/skills/stress-test/SKILL.md \
+  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/codex/SKILL.md
+```
 
-Copy `stress-test.md` into wherever your framework reads agent instructions from, or paste its contents into your agent's system prompt. The skill references tool patterns (web search, sub-agents, user prompts) that are common across agent systems — adapt the specific tool names to your platform.
+### Other agent frameworks
+
+Copy `stress-test.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt. The skill references tool patterns (web search, sub-agents, user prompts) that are common across agent systems.
 
 ## How it works
 
