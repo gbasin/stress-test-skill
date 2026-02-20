@@ -1,6 +1,10 @@
 # stress-test-skill
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) slash command that adversarially reviews your technical plan. It searches for evidence, runs proof-of-concept code, and fixes what's broken.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) slash command that stress-tests technical plans before you build them.
+
+Models are lazy about verification. They'll write a plan that says "use SQLite for concurrent writes" or "Y.js supports persistence out of the box" and move on without checking. These unchecked assumptions become mid-build surprises that force architectural pivots, messy workarounds, and wasted context.
+
+This skill forces the model to actually verify its claims — searching real docs, running proof-of-concept code, and fixing the plan before implementation starts. Each verification runs in a fresh sub-agent context window, so there's no confirmation bias from the planning conversation. The result: plans that work on the first try, which means cleaner code with fewer mid-course corrections.
 
 ## Example
 
