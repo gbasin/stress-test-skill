@@ -1,7 +1,7 @@
 {
   "name": "stress-test",
   "version": "1.0.0",
-  "description": "Adversarially stress-test technical plans by verifying claims against real docs, running POC code, and fixing what breaks.",
+  "description": "Adversarially stress-test technical plans by verifying claims against real docs, running POC code, and updating the plan before you build.",
   "author": {
     "name": "Gary Basin",
     "url": "https://github.com/gbasin"

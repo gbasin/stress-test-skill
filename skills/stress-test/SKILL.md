@@ -1,6 +1,6 @@
 ---
 name: stress-test
-description: Adversarially stress-test a technical plan by verifying claims against real docs, running POC code, and fixing what breaks.
+description: Adversarially stress-test a technical plan by verifying claims against real docs, running POC code, and updating the plan before you build.
 user-invocable: true
 allowed-tools: Bash Read Write Edit Grep Glob WebSearch WebFetch Task AskUserQuestion
 argument-hint: (run in a conversation that has a technical plan)

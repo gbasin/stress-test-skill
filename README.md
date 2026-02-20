@@ -82,7 +82,7 @@ Six phases, each building on the last:
 3. **Triage** — Separates what's confirmed from what needs hands-on testing. Drafts minimal POC specs for unresolved items.
 4. **Approve** — Presents proposed POCs and lets you choose which to run, skip, or modify. Nothing runs without your say-so.
 5. **Test** — Runs approved POCs in parallel in an isolated `.poc-stress-test/` directory. Each POC reports confirmed, disproved, or inconclusive with raw output.
-6. **Fix** — Walks through each finding individually, recommends plan changes, and applies approved fixes inline. Cleans up after itself.
+6. **Update** — Walks through each finding individually, recommends plan changes, and applies approved updates inline. Cleans up after itself.
 
 ## When to use it
 
