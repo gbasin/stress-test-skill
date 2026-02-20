@@ -1,0 +1,11 @@
+{
+  "name": "stress-test",
+  "version": "1.0.0",
+  "description": "Adversarially stress-test technical plans by verifying claims against real docs, running POC code, and fixing what breaks.",
+  "author": {
+    "name": "Gary Basin",
+    "url": "https://github.com/gbasin"
+  },
+  "repository": "https://github.com/gbasin/stress-test-skill",
+  "license": "MIT"
+}

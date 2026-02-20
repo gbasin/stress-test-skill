@@ -1,0 +1,13 @@
+{
+  "name": "stress-test-skill",
+  "owner": {
+    "name": "Gary Basin"
+  },
+  "plugins": [
+    {
+      "name": "stress-test",
+      "source": "..",
+      "description": "Adversarially stress-test technical plans by verifying claims against real docs, running POC code, and fixing what breaks."
+    }
+  ]
+}

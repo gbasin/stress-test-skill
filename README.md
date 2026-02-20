@@ -41,15 +41,14 @@ Caught two false assumptions — one from docs, one from running code.
 
 ## Install
 
-### npx (auto-detects your agent frameworks)
+### Claude Code
 
-```bash
-npx stress-test-skill
+```
+/plugin marketplace add gbasin/stress-test-skill
+/plugin install stress-test
 ```
 
-Installs for Claude Code and Codex automatically if they're present.
-
-### Claude Code
+Or manually:
 
 ```bash
 curl -fsSL -o ~/.claude/commands/stress-test.md \
@@ -58,15 +57,21 @@ curl -fsSL -o ~/.claude/commands/stress-test.md \
 
 ### Codex
 
+```
+$skill-installer install https://github.com/gbasin/stress-test-skill/tree/main/skills/stress-test
+```
+
+Or manually:
+
 ```bash
 mkdir -p ~/.codex/skills/stress-test
 curl -fsSL -o ~/.codex/skills/stress-test/SKILL.md \
-  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/codex/SKILL.md
+  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/skills/stress-test/SKILL.md
 ```
 
 ### Other agent frameworks
 
-Copy `stress-test.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt. The skill references tool patterns (web search, sub-agents, user prompts) that are common across agent systems.
+Copy `stress-test.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt.
 
 ## How it works
 
