@@ -6,38 +6,15 @@ Models are lazy about verification. They'll write a plan that says "use SQLite f
 
 This skill forces the model to actually verify its claims — searching real docs, running proof-of-concept code, and fixing the plan before implementation starts. Each verification runs in a fresh sub-agent context, so there's no confirmation bias from the planning conversation. The result: plans that work on the first try, which means cleaner code with fewer mid-course corrections.
 
-## Example
+## In action
 
-You've been planning a real-time collaborative editor. Your plan assumes "SQLite handles concurrent writes fine" and "Y.js has built-in persistence." You run the skill:
+A plan claimed bash + sqlite3 would be fast enough for git hooks. The skill spun up parallel agents to research alternatives and run an actual latency POC:
 
-```
-Phase 1 — Decomposed plan into 14 decisions, 9 assumptions, 6 dependencies
+![POC running](assets/poc-running.png)
 
-Phase 2 — Launching 4 verification agents in parallel...
+The POC disproved the assumption — bash was 4-5x slower than estimated — and surfaced the real tradeoffs across runtimes:
 
-  CONFIRMED  CodeMirror 6 supports custom extensions (docs.codemirror.net)
-  DISPROVED  "SQLite handles concurrent writes" — WAL mode caps at ~50 write TPS
-  DISPROVED  "Y.js has built-in persistence" — requires y-indexeddb or custom provider
-  CONFIRMED  diff-match-patch handles UTF-8 (google/diff-match-patch#113)
-  UNCERTAIN  WebRTC data channel reliability on mobile — mixed reports, needs testing
-
-Phase 3 — Triage: 7/9 assumptions resolved by search. 2 need POCs:
-  1. CRDT sync accuracy under rapid concurrent edits (est. 10 min)
-  2. WebRTC reconnection latency on mobile (est. 15 min)
-
-Phase 4 — [asks which POCs to run]
-
-Phase 5 — Running approved POCs in .poc-stress-test/...
-  crdt-sync/   CONFIRMED  Y.Text merges correctly at 100 edits/sec
-  webrtc-test/ DISPROVED  reconnection takes 8-12s, not <1s as planned
-
-Phase 6 — Walking through findings one at a time...
-  Recommendation: Replace SQLite with PostgreSQL for relay server
-  Recommendation: Add reconnection UI state, adjust SLA from <1s to <15s
-  [applies approved changes directly into your plan]
-```
-
-Caught two false assumptions — one from docs, one from running code.
+![POC results](assets/poc-results.png)
 
 ## Install
 
