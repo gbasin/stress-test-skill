@@ -18,27 +18,33 @@ The POC disproved the assumption — bash was 4-5x slower than estimated — and
 
 ## Install
 
-### Claude Code
+```bash
+npx skills add gbasin/stress-test-skill
+```
+
+Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, Windsurf, and [other supported agents](https://skills.sh).
+
+### Manual install
+
+<details>
+<summary>Claude Code</summary>
 
 ```
 /plugin marketplace add gbasin/stress-test-skill
 /plugin install stress-test
 ```
 
-Or manually:
+Or:
 
 ```bash
 curl -fsSL -o ~/.claude/commands/stress-test.md \
   https://raw.githubusercontent.com/gbasin/stress-test-skill/main/skills/stress-test/SKILL.md
 ```
 
-### Codex
+</details>
 
-```
-$skill-installer install https://github.com/gbasin/stress-test-skill/tree/main/skills/stress-test
-```
-
-Or manually:
+<details>
+<summary>Codex</summary>
 
 ```bash
 mkdir -p ~/.codex/skills/stress-test
@@ -46,9 +52,14 @@ curl -fsSL -o ~/.codex/skills/stress-test/SKILL.md \
   https://raw.githubusercontent.com/gbasin/stress-test-skill/main/skills/stress-test/SKILL.md
 ```
 
-### Other agent frameworks
+</details>
+
+<details>
+<summary>Other agent frameworks</summary>
 
 Copy `skills/stress-test/SKILL.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt.
+
+</details>
 
 ## How it works
 
