@@ -4,7 +4,7 @@ An agent skill that stress-tests technical plans before you build them.
 
 Models are lazy about verification. They'll write a plan that says "use SQLite for concurrent writes" or "Y.js supports persistence out of the box" and move on without checking. These unchecked assumptions become mid-build surprises that force architectural pivots, messy workarounds, and wasted context.
 
-This skill forces the model to actually verify its claims — searching real docs, ranking evidence quality, running proof-of-concept code when search is not enough, and fixing the plan before implementation starts. Each verification runs in a fresh sub-agent context, so there's less confirmation bias from the planning conversation. The result: plans with fewer hidden assumptions, less mid-build churn, and a clearer line between what's confirmed and what's still risk.
+This skill forces the model to actually verify its claims — searching real docs, ranking evidence quality, running proof-of-concept code when search is not enough, and fixing the plan before implementation starts. Each verification runs in a fresh sub-agent context, so there's less confirmation bias from the planning conversation — fewer hidden assumptions, less mid-build churn, and a clearer line between what's confirmed and what's still risk.
 
 ## In action
 
@@ -19,47 +19,11 @@ The POC disproved the assumption — bash was 4-5x slower than estimated — and
 ## Install
 
 ```bash
-npx skills add gbasin/stress-test-skill
+npx skills add gbasin/stress-test-skill -g
 ```
 
 Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, Windsurf, and [other supported agents](https://skills.sh).
 
-### Manual install
-
-<details>
-<summary>Claude Code</summary>
-
-```
-/plugin marketplace add gbasin/stress-test-skill
-/plugin install stress-test
-```
-
-Or:
-
-```bash
-curl -fsSL -o ~/.claude/commands/stress-test.md \
-  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/skills/stress-test/SKILL.md
-```
-
-</details>
-
-<details>
-<summary>Codex</summary>
-
-```bash
-mkdir -p ~/.codex/skills/stress-test
-curl -fsSL -o ~/.codex/skills/stress-test/SKILL.md \
-  https://raw.githubusercontent.com/gbasin/stress-test-skill/main/skills/stress-test/SKILL.md
-```
-
-</details>
-
-<details>
-<summary>Other agent frameworks</summary>
-
-Copy `skills/stress-test/SKILL.md` into wherever your framework reads agent instructions from, or include its contents in your agent's system prompt.
-
-</details>
 
 ## How it works
 
