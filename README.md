@@ -19,7 +19,7 @@ The POC disproved the assumption — bash was 4-5x slower than estimated — and
 ## Install
 
 ```bash
-npx skills add gbasin/stress-test-skill -g
+npx skills add gbasin/stress-test-skill --all -g
 ```
 
 Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, Windsurf, and [other supported agents](https://skills.sh).
